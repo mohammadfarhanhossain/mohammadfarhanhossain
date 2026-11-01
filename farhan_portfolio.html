@@ -3906,21 +3906,21 @@
       headGroup.add(eyeGroup);
 
       const eyeMeshes = [];
-      const eyePositions = [-0.22, 0.22];
-      const dotGeo = new THREE.SphereGeometry(0.125, 32, 32);
-      const dotBezelGeo = new THREE.TorusGeometry(0.135, 0.015, 16, 36);
+      const eyePositions = [-0.28, 0.28];
+      const dotGeo = new THREE.SphereGeometry(0.16, 32, 32);
+      const dotBezelGeo = new THREE.TorusGeometry(0.17, 0.018, 16, 36);
       eyePositions.forEach((x) => {
         const eye = new THREE.Group();
         eye.position.set(x, 0.02, 0);
 
         const dotMesh = new THREE.Mesh(dotGeo, cyanEmissiveMat);
-        dotMesh.position.set(0, 0, 0.945);
+        dotMesh.position.set(0, 0, 1.08);
         dotMesh.scale.set(1.0, 1.0, 0.3);
         eye.add(dotMesh);
         eyeMeshes.push(dotMesh);
 
         const dotBezel = new THREE.Mesh(dotBezelGeo, royalTrimMat);
-        dotBezel.position.set(0, 0, 0.94);
+        dotBezel.position.set(0, 0, 1.075);
         eye.add(dotBezel);
         eyeGroup.add(eye);
       });
