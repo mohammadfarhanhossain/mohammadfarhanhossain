@@ -15,20 +15,34 @@
       --bg-card-hover: rgba(30, 58, 138, 0.3);
       --ink: #F8FAFC;
       --muted: rgba(241, 245, 249, 0.7);
-      --line: rgba(56, 189, 248, 0.18);
-      --line-subtle: rgba(56, 189, 248, 0.1);
-      --portfolio-accent: #00F0FF;
-      --portfolio-accent-soft: #7DD3FC;
-      --royal-blue: #2563EB;
-      --royal-dark: #1D4ED8;
-      --neon-cyan: #00F0FF;
+      --line: rgba(92, 123, 184, 0.2);
+      --line-subtle: rgba(92, 123, 184, 0.12);
+      --portfolio-accent: #355898;
+      --portfolio-accent-soft: #9bb2dc;
+      --royal-blue: #294b8d;
+      --royal-dark: #1d376b;
+      --neon-cyan: #355898;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      background: #010308;
+    }
     html, body {
-      background: var(--bg); color: var(--ink);
+      background-color: #010308;
+      color: var(--ink);
       font-family: 'Outfit', sans-serif;
       overflow-x: hidden; cursor: default;
+    }
+    body {
+      background-image:
+        radial-gradient(ellipse 110% 70% at 50% -10%, rgba(19, 52, 112, 0.9) 0%, rgba(8, 24, 58, 0.62) 38%, transparent 72%),
+        radial-gradient(ellipse 75% 65% at 100% 35%, rgba(22, 61, 142, 0.58) 0%, rgba(7, 22, 54, 0.25) 48%, transparent 75%),
+        radial-gradient(ellipse 75% 70% at 0% 72%, rgba(12, 39, 93, 0.56) 0%, rgba(4, 15, 38, 0.2) 50%, transparent 78%),
+        linear-gradient(180deg, #0b1d3d 0%, #07142d 28%, #030a19 62%, #010308 100%);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     /* ── LUXURY NAVY BLUE, ROYAL BLUE & BLACK GRADIENT THEME ── */
@@ -42,6 +56,10 @@
         radial-gradient(ellipse 95% 65% at 50% 98%, rgba(29, 78, 216, 0.35) 0%, rgba(10, 24, 52, 0.2) 45%, transparent 75%),
         linear-gradient(180deg, #0a1b38 0%, #071329 25%, #040c1c 55%, #020610 80%, #010307 100%);
       background-attachment: fixed;
+    }
+    body > :not(.cyber-bg) {
+      position: relative;
+      z-index: 1;
     }
     .cyber-bg::before {
       content: '';
@@ -102,9 +120,22 @@
       transition: width 0.05s linear;
     }
 
-    /* Pure White Custom Velocity Cursor */
+    /* Navy Moon Custom Velocity Cursor */
     #cursor-canvas {
       position: fixed; inset: 0; pointer-events: none; z-index: 99999;
+    }
+    #cursor-moon {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100001;
+      pointer-events: none;
+      font-size: 1.35rem;
+      line-height: 1;
+      transform: translate(-50%, -50%);
+      filter: grayscale(1) sepia(1) hue-rotate(175deg) saturate(2.4) brightness(0.62)
+        drop-shadow(0 0 8px rgba(91, 120, 181, 0.9));
+      will-change: transform;
     }
     .cursor-label-pill {
       position: fixed; pointer-events: none; z-index: 100000;
@@ -165,10 +196,10 @@
       top: 0;
       z-index: 1000;
       width: 100%;
-      background: rgba(4, 9, 22, 0.72);
+      background: rgba(3, 8, 20, 0.34);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+      border-bottom: 1px solid rgba(92, 123, 184, 0.16);
       transition: background 0.3s ease, border-color 0.3s ease;
     }
     .nav-container {
@@ -378,12 +409,12 @@
       font-family: inherit;
     }
     .btn-solid {
-      background: linear-gradient(135deg, #0284C7 0%, #2563EB 100%);
-      color: #FFFFFF; border: 1px solid rgba(56, 189, 248, 0.5);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+      background: linear-gradient(135deg, #29477f 0%, #101e3d 100%);
+      color: #FFFFFF; border: 1px solid rgba(91, 120, 181, 0.55);
+      box-shadow: 0 0 20px rgba(41, 71, 127, 0.35);
     }
     .btn-solid:hover {
-      box-shadow: 0 0 30px rgba(56, 189, 248, 0.5); transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(41, 71, 127, 0.55); transform: translateY(-2px);
     }
     .btn-outline {
       background: rgba(13, 27, 56, 0.5); color: #F8FAFC;
@@ -465,9 +496,19 @@
       opacity: 1;
       pointer-events: auto;
     }
+    .portrait-front::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(145deg, rgba(41, 71, 127, 0.28), rgba(2, 8, 24, 0.42)),
+        radial-gradient(circle at 50% 20%, rgba(91, 120, 181, 0.2), transparent 58%);
+      mix-blend-mode: color;
+    }
     .liquid-portrait-img {
       width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
-      display: block; filter: contrast(1.06) brightness(1.02);
+      display: block; filter: contrast(1.06) brightness(0.94) saturate(0.82) hue-rotate(7deg);
     }
     .liquid-portrait-glare {
       position: absolute; inset: 0; pointer-events: none; opacity: 0;
@@ -1529,14 +1570,14 @@
       gap: 0.45rem;
       padding: 0.45rem 1rem;
       border-radius: 12px;
-      background: linear-gradient(135deg, #0284C7 0%, #1E3A8A 100%);
+      background: linear-gradient(135deg, #29477f 0%, #101e3d 100%);
       color: #FFFFFF;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       font-weight: 700;
       text-decoration: none;
-      border: 1px solid rgba(0, 240, 255, 0.5);
-      box-shadow: 0 4px 16px rgba(0, 240, 255, 0.25);
+      border: 1px solid rgba(91, 120, 181, 0.55);
+      box-shadow: 0 4px 16px rgba(41, 71, 127, 0.35);
       transition: all 0.2s ease;
     }
     .chat-action-btn:hover {
@@ -1641,6 +1682,54 @@
       .public-portfolio__project { width: 92vw; grid-template-columns: 1fr; }
       .public-portfolio__cv-page { grid-template-columns: 1fr; text-align: center; justify-items: center; }
     }
+
+    /* Keep interactive blue accents within the navy background palette. */
+    .nav-brand-code,
+    .nav-brand-dot,
+    .top-nav-link:hover,
+    .top-nav-link.is-active,
+    .top-nav-link-cv,
+    .progress-bar,
+    .public-portfolio__marquee-dot {
+      color: #5b78b5 !important;
+      background-color: #29477f !important;
+      border-color: rgba(91, 120, 181, 0.6) !important;
+      text-shadow: 0 0 12px rgba(55, 82, 137, 0.7) !important;
+    }
+    .nav-brand-code,
+    .nav-brand-dot,
+    .top-nav-link.is-active::after,
+    .public-portfolio__marquee-dot {
+      background: #29477f !important;
+      box-shadow: 0 0 10px rgba(55, 82, 137, 0.7) !important;
+    }
+    .cylinder-card .cylinder-project-visual {
+      background: radial-gradient(circle at 50% 35%, rgba(41, 71, 127, 0.28), rgba(4, 9, 22, 0.92) 72%);
+      border-color: rgba(91, 120, 181, 0.28);
+      color: #5b78b5;
+      box-shadow: inset 0 0 24px rgba(41, 71, 127, 0.14);
+    }
+    .cylinder-card p[style*="color: #00F0FF"] {
+      color: #9bb2dc !important;
+      background: transparent !important;
+    }
+    .cylinder-card.is-facing {
+      border-color: rgba(91, 120, 181, 0.72);
+      box-shadow: 0 0 40px rgba(41, 71, 127, 0.42), 0 20px 50px rgba(0, 0, 0, 0.9);
+    }
+    .cylinder-card.is-side {
+      border-color: rgba(91, 120, 181, 0.28);
+    }
+    #floating-atlas-launcher {
+      background: linear-gradient(135deg, #1d376b 0%, #09152f 100%) !important;
+      border-color: rgba(91, 120, 181, 0.8) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 20px rgba(41, 71, 127, 0.55) !important;
+    }
+    #atlas-toggle-btn {
+      background: linear-gradient(135deg, #29477f 0%, #101e3d 100%) !important;
+      border-color: rgba(91, 120, 181, 0.7) !important;
+      box-shadow: 0 0 25px rgba(41, 71, 127, 0.45) !important;
+    }
   </style>
 </head>
 <body>
@@ -1648,6 +1737,7 @@
   <div class="cyber-bg"></div>
   <div class="progress-bar" id="scroll-progress"></div>
   <canvas id="cursor-canvas"></canvas>
+  <span id="cursor-moon" aria-hidden="true">🌕</span>
   <div class="cursor-label-pill" id="cursor-pill"></div>
 
   <!-- ── TOP NAVIGATION BAR (MIM'S EXACT ARCHITECTURE IN ROYAL NAVY) ── -->
@@ -1693,7 +1783,7 @@
           <span class="public-portfolio__name-char">S</span>
           <span class="public-portfolio__name-char">A</span>
           <span class="public-portfolio__name-char">I</span>
-          <span class="public-portfolio__name-char">N</span><span style="color: var(--portfolio-accent);">.</span>
+          <span class="public-portfolio__name-char">N</span>
         </span>
       </h1>
       <a href="#about" class="scroll-cue">
@@ -3567,6 +3657,7 @@
       const isTouch = window.matchMedia('(pointer: coarse)').matches;
       const canvas = document.getElementById('cursor-canvas');
       const pill = document.getElementById('cursor-pill');
+      const moon = document.getElementById('cursor-moon');
       if (isTouch || !canvas || !pill) return;
 
       const ctx = canvas.getContext('2d');
@@ -3633,6 +3724,7 @@
         cursorY += (targetY - cursorY) * 0.35;
 
         pill.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -140%)`;
+        moon.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
 
         const vx = cursorX - prevX;
         const vy = cursorY - prevY;
@@ -3657,11 +3749,11 @@
               vx: Math.cos(angle) * spd, vy: Math.sin(angle) * spd,
               size: Math.random() * 2 + 1,
               life: 0, maxLife: Math.random() * 12 + 8,
-              color: '#FFFFFF'
+              color: '#5b78b5'
             });
           }
 
-          // Tapered White Comet Tail
+          // Tapered navy comet tail
           if (trailHistory.length > 2) {
             const baseRadius = currentState === 'hover' ? 10 : 6.5;
             const leftPoints = [];
@@ -3692,11 +3784,11 @@
               ctx.closePath();
 
               const tailGrad = ctx.createLinearGradient(cursorX, cursorY, trailHistory[lastIdx].x, trailHistory[lastIdx].y);
-              tailGrad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
-              tailGrad.addColorStop(0.35, 'rgba(220, 240, 255, 0.5)');
-              tailGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+              tailGrad.addColorStop(0, 'rgba(91, 120, 181, 0.9)');
+              tailGrad.addColorStop(0.35, 'rgba(53, 88, 152, 0.5)');
+              tailGrad.addColorStop(1, 'rgba(53, 88, 152, 0)');
               ctx.fillStyle = tailGrad;
-              ctx.shadowColor = '#FFFFFF';
+              ctx.shadowColor = '#355898';
               ctx.shadowBlur = 8;
               ctx.fill();
               ctx.restore();
@@ -3712,7 +3804,7 @@
             ctx.save();
             ctx.globalAlpha = op;
             ctx.fillStyle = s.color;
-            ctx.shadowColor = '#FFFFFF';
+            ctx.shadowColor = '#355898';
             ctx.shadowBlur = 6;
             ctx.beginPath();
             ctx.arc(s.x, s.y, s.size * op, 0, Math.PI * 2);
@@ -3720,24 +3812,6 @@
             ctx.restore();
           }
 
-          // Pure White Orb Head
-          const radius = currentState === 'hover' ? 11 : 7;
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(cursorX, cursorY, radius * 1.6, 0, Math.PI * 2);
-          const corona = ctx.createRadialGradient(cursorX, cursorY, radius * 0.7, cursorX, cursorY, radius * 1.6);
-          corona.addColorStop(0, 'rgba(255, 255, 255, 0.45)');
-          corona.addColorStop(1, 'rgba(255, 255, 255, 0)');
-          ctx.fillStyle = corona;
-          ctx.fill();
-
-          ctx.beginPath();
-          ctx.arc(cursorX, cursorY, radius, 0, Math.PI * 2);
-          ctx.fillStyle = '#FFFFFF';
-          ctx.shadowColor = '#FFFFFF';
-          ctx.shadowBlur = 12;
-          ctx.fill();
-          ctx.restore();
         }
 
         requestAnimationFrame(renderCursor);
