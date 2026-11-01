@@ -3901,22 +3901,29 @@
       visorMesh.position.set(0, 0.02, 0.64);
       headGroup.add(visorMesh);
 
-      // 5. Minimalist Single Circular Dot Eye (Cyber Monocular Optic Lens)
+      // 5. Expressive dual-eye optic lenses
       const eyeGroup = new THREE.Group();
       headGroup.add(eyeGroup);
 
-      // Center Circular Dot Eye
+      const eyeMeshes = [];
+      const eyePositions = [-0.22, 0.22];
       const dotGeo = new THREE.SphereGeometry(0.125, 32, 32);
-      const dotMesh = new THREE.Mesh(dotGeo, cyanEmissiveMat);
-      dotMesh.position.set(0, 0.02, 0.945);
-      dotMesh.scale.set(1.0, 1.0, 0.3); // perfect circular disc dot
-      eyeGroup.add(dotMesh);
-
-      // Sleek metallic bezel ring surrounding the circle dot
       const dotBezelGeo = new THREE.TorusGeometry(0.135, 0.015, 16, 36);
-      const dotBezel = new THREE.Mesh(dotBezelGeo, royalTrimMat);
-      dotBezel.position.set(0, 0.02, 0.94);
-      eyeGroup.add(dotBezel);
+      eyePositions.forEach((x) => {
+        const eye = new THREE.Group();
+        eye.position.set(x, 0.02, 0);
+
+        const dotMesh = new THREE.Mesh(dotGeo, cyanEmissiveMat);
+        dotMesh.position.set(0, 0, 0.945);
+        dotMesh.scale.set(1.0, 1.0, 0.3);
+        eye.add(dotMesh);
+        eyeMeshes.push(dotMesh);
+
+        const dotBezel = new THREE.Mesh(dotBezelGeo, royalTrimMat);
+        dotBezel.position.set(0, 0, 0.94);
+        eye.add(dotBezel);
+        eyeGroup.add(eye);
+      });
 
       // Minimalist Clean Sensor Bar
       const sensorBarGeo = new THREE.BoxGeometry(0.14, 0.014, 0.02);
@@ -4102,6 +4109,9 @@
         headGroup.rotation.x = -currentLookY;
         headGroup.rotation.z = -currentLookX * 0.2;
         torsoGroup.rotation.y = currentLookX * 0.35;
+
+        const blink = Math.max(0.18, Math.abs(Math.sin(t * 0.42)) > 0.985 ? 0.18 : 1);
+        eyeMeshes.forEach((eye) => { eye.scale.y = blink; });
 
         antennaGroup.rotation.z = -0.32 + Math.sin(t * 3.5) * 0.08 - currentLookX * 0.2;
         antennaGroup.rotation.x = Math.cos(t * 3.0) * 0.06 + currentLookY * 0.2;
