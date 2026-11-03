@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Farhan Hossain — Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Hind+Siliguri:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 210mm;
+      height: 297mm;
+      padding: 13mm 14mm 12mm 14mm;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.4;
+      font-size: 9.1pt;
+      -webkit-font-smoothing: antialiased;
+    }
+    .bengali {
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
+      font-weight: 700;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 9px;
+      border-bottom: 2.5px solid #0284c7;
+    }
+    .header-left h1 {
+      font-size: 22pt;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #0f172a;
+      line-height: 1.05;
+    }
+    .header-left .title-sub {
+      font-size: 9.6pt;
+      font-weight: 700;
+      color: #0284c7;
+      margin-top: 4px;
+      letter-spacing: -0.01em;
+    }
+    .header-left .univ-sub {
+      font-size: 8.5pt;
+      color: #475569;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 8.1pt;
+      color: #334155;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.55;
+    }
+    .header-right a {
+      color: #0369a1;
+      font-weight: 600;
+    }
+    .header-right span.icon {
+      display: inline-block;
+      width: 13px;
+      text-align: center;
+      margin-right: 3px;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-size: 8.8pt;
+      font-weight: 800;
+      color: #0284c7;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 11px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      margin-bottom: 5px;
+    }
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 9.2pt;
+      color: #0f172a;
+    }
+    .edu-header .date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.2pt;
+      color: #0284c7;
+      font-weight: 600;
+    }
+    .edu-sub {
+      font-size: 8.4pt;
+      color: #475569;
+      margin-top: 1px;
+    }
+    .edu-desc {
+      font-size: 8.1pt;
+      color: #64748b;
+      margin-top: 1.5px;
+      line-height: 1.35;
+    }
+
+    /* ── COMPETITIVE PROGRAMMING GRID ── */
+    .cp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .cp-card {
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      border-radius: 5px;
+      padding: 6px 10px;
+      border-left: 3px solid #0284c7;
+    }
+    .cp-card-platform {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .cp-card-platform strong {
+      font-size: 8.6pt;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+    .cp-metric {
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #0284c7;
+    }
+    .cp-detail {
+      font-size: 7.9pt;
+      color: #475569;
+      line-height: 1.4;
+    }
+    .cp-detail strong {
+      color: #0f172a;
+    }
+
+    /* ── TECHNICAL ARSENAL ── */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1px;
+      font-size: 8.2pt;
+    }
+    .skills-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .skills-table td {
+      padding: 3.2px 0;
+      vertical-align: top;
+    }
+    .skills-label {
+      width: 115px;
+      font-weight: 700;
+      color: #334155;
+      font-size: 8.2pt;
+    }
+    .skills-tags {
+      color: #0f172a;
+      line-height: 1.45;
+    }
+    .badge {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 7.6pt;
+      font-weight: 500;
+      margin-right: 3px;
+      margin-bottom: 2px;
+      color: #1e293b;
+    }
+    .badge.accent {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+
+    /* ── SELECTED PROJECTS ── */
+    .project-item {
+      margin-bottom: 7px;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .project-title {
+      font-size: 9.3pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .project-title a {
+      color: #0f172a;
+    }
+    .project-title a:hover {
+      color: #0284c7;
+    }
+    .project-stack {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.4pt;
+      color: #0284c7;
+      font-weight: 600;
+    }
+    .project-bullets {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 8.1pt;
+      color: #334155;
+      line-height: 1.4;
+    }
+    .project-bullets li {
+      position: relative;
+      padding-left: 11px;
+      margin-bottom: 1.5px;
+    }
+    .project-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 1px;
+      color: #0284c7;
+      font-weight: bold;
+    }
+
+    /* ── CAREER HORIZON ── */
+    .career-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 10px;
+      font-size: 8.2pt;
+      color: #334155;
+      line-height: 1.45;
+      margin-top: 1px;
+    }
+    .career-box strong {
+      color: #0284c7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-left">
+      <h1>FARHAN HOSSAIN</h1>
+      <div class="title-sub">Software Engineer &bull; Forward Deployment Engineering Track</div>
+      <div class="univ-sub">Khulna University of Engineering &amp; Technology (KUET &apos;24)</div>
+    </div>
+    <div class="header-right">
+      <div><span class="icon">📧</span><a href="mailto:farhanhossain514728@gmail.com">farhanhossain514728@gmail.com</a></div>
+      <div><span class="icon">💻</span><a href="https://github.com/mohammadfarhanhossain">github.com/mohammadfarhanhossain</a></div>
+      <div><span class="icon">⚡</span><a href="https://codeforces.com/profile/muhammad_farhan_hossain">codeforces.com/profile/muhammad_farhan_hossain</a></div>
+      <div><span class="icon">📍</span>Khulna / Dhaka, Bangladesh</div>
+    </div>
+  </header>
+
+  <!-- ── EDUCATION ── -->
+  <section>
+    <div class="section-title">01 // Education</div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span>Khulna University of Engineering &amp; Technology (KUET)</span>
+        <span class="date">2024 — Present</span>
+      </div>
+      <div class="edu-sub">Bachelor of Science in Computer Science &amp; Engineering &bull; Batch &apos;24 (Current 4th Semester)</div>
+      <div class="edu-desc">Core Academic Focus: Data Structures, Algorithms, Object-Oriented Software Design, Discrete Mathematics, Database Systems, Computer Architecture.</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-header">
+        <span>Notre Dame College, Dhaka</span>
+        <span class="date">2022 — 2024</span>
+      </div>
+      <div class="edu-sub">Higher Secondary Certificate (HSC &apos;24) &bull; Science Division</div>
+    </div>
+  </section>
+
+  <!-- ── COMPETITIVE PROGRAMMING ── -->
+  <section>
+    <div class="section-title">02 // Competitive Programming &amp; Algorithmic Acumen</div>
+    <div class="cp-grid">
+      <div class="cp-card">
+        <div class="cp-card-platform">
+          <strong>Codeforces</strong>
+          <span class="cp-metric">163+ Solved</span>
+        </div>
+        <div class="cp-detail">
+          Peak Rating: <strong>1120</strong> &bull; Active <strong>58-Day Streak</strong><br>
+          Handle: <a href="https://codeforces.com/profile/muhammad_farhan_hossain" style="color:#0284c7;font-weight:600;">muhammad_farhan_hossain</a>
+        </div>
+      </div>
+      <div class="cp-card">
+        <div class="cp-card-platform">
+          <strong>LeetCode</strong>
+          <span class="cp-metric">156+ Solved</span>
+        </div>
+        <div class="cp-detail">
+          Strong fluency in Dynamic Programming, Graphs (BFS/DFS), Binary Search Trees, and Two-Pointer sliding windows.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TECHNICAL ARSENAL ── -->
+  <section>
+    <div class="section-title">03 // Technical Arsenal</div>
+    <table class="skills-table">
+      <tr>
+        <td class="skills-label">Languages</td>
+        <td class="skills-tags">
+          <span class="badge accent">C++20 (STL, Templates)</span>
+          <span class="badge accent">Python 3</span>
+          <span class="badge">C</span>
+          <span class="badge">SQL</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">JavaScript (ES6+)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="skills-label">Web Automation</td>
+        <td class="skills-tags">
+          <span class="badge accent">Playwright</span>
+          <span class="badge accent">JobSpy</span>
+          <span class="badge">Selenium WebDriver</span>
+          <span class="badge">BeautifulSoup4</span>
+          <span class="badge">Curl-cffi</span>
+          <span class="badge">Asyncio</span>
+          <span class="badge">Cloudflare / Anti-Bot Bypass</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="skills-label">Data &amp; Analytics</td>
+        <td class="skills-tags">
+          <span class="badge accent">Pandas</span>
+          <span class="badge accent">Streamlit</span>
+          <span class="badge accent">SQLite (WAL Mode)</span>
+          <span class="badge">NumPy</span>
+          <span class="badge">Plotly Dark</span>
+          <span class="badge">MySQL</span>
+          <span class="badge">Power BI</span>
+          <span class="badge">Relational Schema Modeling</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="skills-label">DevOps &amp; Cloud</td>
+        <td class="skills-tags">
+          <span class="badge accent">GitHub Actions (CI/CD Cron)</span>
+          <span class="badge">Docker</span>
+          <span class="badge">Git / GitHub</span>
+          <span class="badge">Linux / Bash</span>
+          <span class="badge">ReportLab PDF</span>
+          <span class="badge">FastAPI (Active Learning)</span>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ── KEY ENGINEERING PROJECTS ── -->
+  <section>
+    <div class="section-title">04 // Key Engineering Projects</div>
+
+    <!-- Project 1 -->
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">
+          <a href="https://github.com/mohammadfarhanhossain/linkedin-job-post-scraper">LinkedIn &amp; Multi-Platform Job Market Intelligence</a>
+        </span>
+        <span class="project-stack">Python &bull; Streamlit &bull; JobSpy &bull; SQLite WAL &bull; GitHub Actions &bull; Plotly</span>
+      </div>
+      <ul class="project-bullets">
+        <li>Architected an automated multi-platform recruitment intelligence platform harvesting 2,050+ vacancies across LinkedIn, BDJobs, and Indeed with 3-tier dynamic classification.</li>
+        <li>Implemented high-concurrency scraping pipelines, SQLite WAL mode storage, Plotly dark analytics, 3-day link verification, ReportLab PDF reports, and daily automated GitHub Actions cron automation.</li>
+      </ul>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">
+          <a href="https://github.com/mohammadfarhanhossain/boibondhu-salesman-ai"><span class="bengali">বইবন্ধু</span> AI &amp; 21-Bookstore Live Price Comparator</a>
+        </span>
+        <span class="project-stack">FastAPI &bull; NLP Intent &bull; Vector Search &bull; Python &bull; Streamlit &bull; Docker</span>
+      </div>
+      <ul class="project-bullets">
+        <li>Engineered a multi-store e-commerce intelligence SaaS comparing real-time book prices and stock availability across 21 online bookstores in Bangladesh.</li>
+        <li>Integrated a persona-driven AI book salesman concierge powered by semantic vector search and FastAPI, delivering contextual reader recommendations from real-time scraped catalog inventories.</li>
+      </ul>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">
+          <a href="https://github.com/mohammadfarhanhossain/amazon_bookscrapper">Amazon Books Unified Anti-Bot Scraping Pipeline</a>
+        </span>
+        <span class="project-stack">Playwright &bull; Curl-cffi &bull; BeautifulSoup4 &bull; Python &bull; MySQL &bull; SQLite</span>
+      </div>
+      <ul class="project-bullets">
+        <li>Engineered a high-throughput e-commerce catalog harvester with TLS fingerprint spoofing, dynamic proxy rotation, and automated Cloudflare anti-bot mitigation.</li>
+        <li>Extracted multi-tier metadata (ratings, reviews, ISBN, author taxonomy) with automated relational schema normalization into SQLite and MySQL databases.</li>
+      </ul>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-title">
+          <a href="https://github.com/mohammadfarhanhossain">Dual Bookstore Scalable Extraction Engine (Wafilife &amp; Rokomari)</a>
+        </span>
+        <span class="project-stack">Python &bull; Playwright &bull; Selenium &bull; BeautifulSoup4 &bull; Relational SQL</span>
+      </div>
+      <ul class="project-bullets">
+        <li>Built automated web crawlers targeting national e-commerce book portals, navigating dynamic JavaScript pagination, session throttling, and anti-bot obstacles.</li>
+        <li>Structured complete publisher catalogs (10,000+ items) into normalized relational schemas for cross-store price intelligence and author analytics.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── CAREER HORIZON ── -->
+  <section>
+    <div class="section-title">05 // Career Focus &amp; Horizon</div>
+    <div class="career-box">
+      Actively specializing in <strong>Forward Deployment Engineering (FDE)</strong>, solutions architecture, and robust client-facing data extraction pipelines. Rigorously preparing foundational academic coursework in distributed systems to pursue <strong>fully-funded international graduate research scholarships (Ph.D. / M.Sc.)</strong> abroad.
+    </div>
+  </section>
+
+</body>
+</html>
